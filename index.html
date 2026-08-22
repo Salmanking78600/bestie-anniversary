@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>365 Days of Us — For Christy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
 
-  /* =========================================================
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>365 Days of Us — For Christy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* =========================================================
      HOW TO ADD YOUR PHOTOS
      Every photo spot below is a <div class="photo-slot"> with
      a dashed border and a camera icon. To add a real photo,
@@ -27,1083 +29,1396 @@
      search "FRONT / BACK" to edit what's written on the back.
      ========================================================= */
 
-  :root{
-    --night: #0A1240;
-    --night-2: #131B5E;
-    --deep: #1A2678;
-    --paper: #FFF8FB;
-    --pink: #FF6FA8;
-    --pink-dark: #C13D77;
-    --pink-soft: #FFC2DE;
-    --blue: #5B8CFF;
-    --blue-dark: #2E4FB8;
-    --blue-soft: #B9D0FF;
-    --ink: #1A2678;
-    --cream: #FFF8FB;
-    --periwinkle: #C3CEFF;
-    --periwinkle-dim: #8B9AE0;
+    :root {
+      --night: #0A1240;
+      --night-2: #131B5E;
+      --deep: #1A2678;
+      --paper: #FFF8FB;
+      --pink: #FF6FA8;
+      --pink-dark: #C13D77;
+      --pink-soft: #FFC2DE;
+      --blue: #5B8CFF;
+      --blue-dark: #2E4FB8;
+      --blue-soft: #B9D0FF;
+      --ink: #1A2678;
+      --cream: #FFF8FB;
+      --periwinkle: #C3CEFF;
+      --periwinkle-dim: #8B9AE0;
 
-    --font-hand: 'Caveat', cursive;
-    --font-display: 'Fraunces', serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
-    --font-mono: 'Space Mono', monospace;
-  }
-
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-
-  body{
-    margin: 0;
-    background: var(--night);
-    color: var(--cream);
-    font-family: var(--font-body);
-    overflow-x: hidden;
-    cursor: default;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-    *, *::before, *::after{
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
+      --font-hand: 'Caveat', cursive;
+      --font-display: 'Fraunces', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
     }
-  }
 
-  .wrap{
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 6vw;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  a{ color: inherit; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ---------- scroll progress ribbon ---------- */
-  .progress-ribbon{
-    position: fixed;
-    top: 0; left: 0;
-    height: 4px;
-    width: 0%;
-    background: linear-gradient(90deg, var(--blue), var(--pink));
-    z-index: 999;
-    transition: width 0.1s linear;
-  }
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--cream);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      cursor: default;
+    }
 
-  /* ---------- cursor sparkles (desktop only) ---------- */
-  .sparkle{
-    position: fixed;
-    pointer-events: none;
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    z-index: 998;
-    animation: sparkle-fade 0.9s ease-out forwards;
-  }
-  @keyframes sparkle-fade{
-    0%{ opacity: 0.9; transform: scale(1) translateY(0); }
-    100%{ opacity: 0; transform: scale(0.3) translateY(-18px); }
-  }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
 
-  /* ---------- reveal-on-scroll ---------- */
-  .reveal{
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.is-visible{
-    opacity: 1;
-    transform: translateY(0);
-  }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
 
-  /* ---------- ambient stars ---------- */
-  .stars{ position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-  .star{
-    position: absolute;
-    width: 3px; height: 3px;
-    background: var(--cream);
-    border-radius: 50%;
-    opacity: 0.5;
-    animation: twinkle 4s ease-in-out infinite;
-  }
-  @keyframes twinkle{
-    0%, 100%{ opacity: 0.15; }
-    50%{ opacity: 0.9; }
-  }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 6vw;
+    }
 
-  /* ---------- glow orbs ---------- */
-  .orb{
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.55;
-    pointer-events: none;
-    animation: drift 16s ease-in-out infinite;
-  }
-  @keyframes drift{
-    0%, 100%{ transform: translate(0,0) scale(1); }
-    50%{ transform: translate(30px,-20px) scale(1.12); }
-  }
+    a {
+      color: inherit;
+    }
 
-  /* ---------- confetti ---------- */
-  .confetti-piece{
-    position: absolute;
-    top: -20px;
-    width: 8px; height: 14px;
-    opacity: 0.9;
-    animation: fall linear forwards;
-  }
-  @keyframes fall{
-    to{ transform: translateY(115vh) rotate(540deg); opacity: 0.2; }
-  }
+    /* ---------- scroll progress ribbon ---------- */
+    .progress-ribbon {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      z-index: 999;
+      transition: width 0.1s linear;
+    }
 
-  /* =========================================================
+    /* ---------- cursor sparkles (desktop only) ---------- */
+    .sparkle {
+      position: fixed;
+      pointer-events: none;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      z-index: 998;
+      animation: sparkle-fade 0.9s ease-out forwards;
+    }
+
+    @keyframes sparkle-fade {
+      0% {
+        opacity: 0.9;
+        transform: scale(1) translateY(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-18px);
+      }
+    }
+
+    /* ---------- reveal-on-scroll ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- ambient stars ---------- */
+    .stars {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--cream);
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: twinkle 4s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: 0.15;
+      }
+
+      50% {
+        opacity: 0.9;
+      }
+    }
+
+    /* ---------- glow orbs ---------- */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.55;
+      pointer-events: none;
+      animation: drift 16s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(30px, -20px) scale(1.12);
+      }
+    }
+
+    /* ---------- confetti ---------- */
+    .confetti-piece {
+      position: absolute;
+      top: -20px;
+      width: 8px;
+      height: 14px;
+      opacity: 0.9;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(115vh) rotate(540deg);
+        opacity: 0.2;
+      }
+    }
+
+    /* =========================================================
      HERO
      ========================================================= */
-  .hero{
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 55%, var(--deep) 100%);
-    padding: 8vh 6vw 10vh;
-    overflow: hidden;
-  }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, var(--night) 0%, var(--night-2) 55%, var(--deep) 100%);
+      padding: 8vh 6vw 10vh;
+      overflow: hidden;
+    }
 
-  .hero .orb-1{ width: 380px; height: 380px; background: var(--blue); top: -80px; left: -100px; }
-  .hero .orb-2{ width: 320px; height: 320px; background: var(--pink); bottom: -60px; right: -80px; animation-delay: -6s; }
+    .hero .orb-1 {
+      width: 380px;
+      height: 380px;
+      background: var(--blue);
+      top: -80px;
+      left: -100px;
+    }
 
-  .hero-eyebrow{
-    position: relative;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(0.95rem, 2vw, 1.15rem);
-    color: var(--blue-soft);
-    letter-spacing: 0.04em;
-    margin: 0 0 0.6rem;
-  }
+    .hero .orb-2 {
+      width: 320px;
+      height: 320px;
+      background: var(--pink);
+      bottom: -60px;
+      right: -80px;
+      animation-delay: -6s;
+    }
 
-  .hero h1{
-    position: relative;
-    font-family: var(--font-hand);
-    font-weight: 700;
-    font-size: clamp(3.2rem, 11vw, 7.5rem);
-    line-height: 0.95;
-    margin: 0;
-    color: var(--cream);
-  }
+    .hero-eyebrow {
+      position: relative;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--blue-soft);
+      letter-spacing: 0.04em;
+      margin: 0 0 0.6rem;
+    }
 
-  .hero h1 .accent{
-    background: linear-gradient(90deg, var(--blue-soft), var(--pink-soft));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+    .hero h1 {
+      position: relative;
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: clamp(3.2rem, 11vw, 7.5rem);
+      line-height: 0.95;
+      margin: 0;
+      color: var(--cream);
+    }
 
-  .hero-sub{
-    position: relative;
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--periwinkle);
-    max-width: 46ch;
-    margin: 1.4rem auto 0;
-    line-height: 1.6;
-  }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, var(--blue-soft), var(--pink-soft));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-  .hero-sub strong{ color: var(--pink-soft); font-weight: 600; }
+    .hero-sub {
+      position: relative;
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--periwinkle);
+      max-width: 46ch;
+      margin: 1.4rem auto 0;
+      line-height: 1.6;
+    }
 
-  .day-stamp{
-    position: relative;
-    margin-top: 2.6rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.9rem;
-    background: var(--paper);
-    color: var(--ink);
-    padding: 0.9rem 1.6rem;
-    border-radius: 4px;
-    transform: rotate(-3deg);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
-    border: 2px dashed var(--pink-dark);
-    transition: transform 0.3s ease;
-  }
-  .day-stamp:hover{ transform: rotate(0deg) scale(1.04); }
+    .hero-sub strong {
+      color: var(--pink-soft);
+      font-weight: 600;
+    }
 
-  .day-stamp .num{
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: clamp(1.6rem, 4vw, 2.2rem);
-    line-height: 1;
-    color: var(--blue-dark);
-  }
+    .day-stamp {
+      position: relative;
+      margin-top: 2.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 0.9rem 1.6rem;
+      border-radius: 4px;
+      transform: rotate(-3deg);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+      border: 2px dashed var(--pink-dark);
+      transition: transform 0.3s ease;
+    }
 
-  .day-stamp .label{
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--pink-dark);
-    max-width: 8ch;
-    text-align: left;
-  }
+    .day-stamp:hover {
+      transform: rotate(0deg) scale(1.04);
+    }
 
-  .scroll-cue{
-    position: absolute;
-    bottom: 2.4rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--periwinkle-dim);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .scroll-cue .arrow{
-    width: 1px; height: 28px;
-    background: linear-gradient(180deg, var(--periwinkle-dim), transparent);
-    animation: bob 2s ease-in-out infinite;
-  }
-  @keyframes bob{
-    0%, 100%{ transform: translateY(0); opacity: 0.4; }
-    50%{ transform: translateY(8px); opacity: 1; }
-  }
+    .day-stamp .num {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1;
+      color: var(--blue-dark);
+    }
 
-  /* =========================================================
+    .day-stamp .label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pink-dark);
+      max-width: 8ch;
+      text-align: left;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 2.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--periwinkle-dim);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .scroll-cue .arrow {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(180deg, var(--periwinkle-dim), transparent);
+      animation: bob 2s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.4;
+      }
+
+      50% {
+        transform: translateY(8px);
+        opacity: 1;
+      }
+    }
+
+    /* =========================================================
      SECTION SHELLS
      ========================================================= */
-  section{ position: relative; padding: clamp(4rem, 9vh, 7rem) 0; overflow: hidden; }
-  .section-deep{ background: var(--deep); }
-  .section-night{ background: var(--night); }
-  .section-night2{ background: var(--night-2); }
+    section {
+      position: relative;
+      padding: clamp(4rem, 9vh, 7rem) 0;
+      overflow: hidden;
+    }
 
-  .eyebrow{
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--blue-soft);
-    margin: 0 0 0.6rem;
-  }
+    .section-deep {
+      background: var(--deep);
+    }
 
-  .section-title{
-    font-family: var(--font-hand);
-    font-weight: 700;
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    line-height: 1;
-    color: var(--cream);
-    margin: 0 0 1.2rem;
-  }
-  .section-title .accent{ color: var(--pink-soft); }
-  .section-title .accent2{ color: var(--blue-soft); }
+    .section-night {
+      background: var(--night);
+    }
 
-  .section-lede{
-    font-family: var(--font-body);
-    color: var(--periwinkle);
-    font-size: 1.05rem;
-    max-width: 60ch;
-    line-height: 1.7;
-    margin: 0 0 3rem;
-  }
+    .section-night2 {
+      background: var(--night-2);
+    }
 
-  /* =========================================================
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-soft);
+      margin: 0 0 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1;
+      color: var(--cream);
+      margin: 0 0 1.2rem;
+    }
+
+    .section-title .accent {
+      color: var(--pink-soft);
+    }
+
+    .section-title .accent2 {
+      color: var(--blue-soft);
+    }
+
+    .section-lede {
+      font-family: var(--font-body);
+      color: var(--periwinkle);
+      font-size: 1.05rem;
+      max-width: 60ch;
+      line-height: 1.7;
+      margin: 0 0 3rem;
+    }
+
+    /* =========================================================
      LETTER
      ========================================================= */
-  .letter-card{
-    background: var(--paper);
-    color: var(--ink);
-    max-width: 640px;
-    margin: 0 auto;
-    padding: clamp(2.2rem, 5vw, 3.4rem);
-    border-radius: 3px;
-    transform: rotate(-1.2deg);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
-    position: relative;
-    transition: transform 0.4s ease;
-  }
-  .letter-card:hover{ transform: rotate(0deg); }
+    .letter-card {
+      background: var(--paper);
+      color: var(--ink);
+      max-width: 640px;
+      margin: 0 auto;
+      padding: clamp(2.2rem, 5vw, 3.4rem);
+      border-radius: 3px;
+      transform: rotate(-1.2deg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      position: relative;
+      transition: transform 0.4s ease;
+    }
 
-  .letter-card::before{
-    content: "";
-    position: absolute;
-    top: -16px; left: 50%;
-    transform: translateX(-50%) rotate(-4deg);
-    width: 90px; height: 32px;
-    background: rgba(91, 140, 255, 0.4);
-    border: 1px solid rgba(46, 79, 184, 0.3);
-  }
+    .letter-card:hover {
+      transform: rotate(0deg);
+    }
 
-  .letter-heading{
-    font-family: var(--font-hand);
-    font-weight: 700;
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    margin: 0.4rem 0 1.4rem;
-    color: var(--pink-dark);
-  }
+    .letter-card::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-4deg);
+      width: 90px;
+      height: 32px;
+      background: rgba(91, 140, 255, 0.4);
+      border: 1px solid rgba(46, 79, 184, 0.3);
+    }
 
-  .letter-body{
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
-    line-height: 1.85;
-    color: var(--ink);
-    opacity: 0.9;
-  }
+    .letter-heading {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin: 0.4rem 0 1.4rem;
+      color: var(--pink-dark);
+    }
 
-  .letter-sign{
-    font-family: var(--font-hand);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--blue-dark);
-    margin-top: 1.8rem;
-    text-align: right;
-  }
+    .letter-body {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      line-height: 1.85;
+      color: var(--ink);
+      opacity: 0.9;
+    }
 
-  /* =========================================================
+    .letter-sign {
+      font-family: var(--font-hand);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-top: 1.8rem;
+      text-align: right;
+    }
+
+    /* =========================================================
      GALLERY / FLIP POLAROIDS
      ========================================================= */
-  .gallery-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: clamp(2rem, 3vw, 2.8rem);
-    padding-top: 1rem;
-  }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: clamp(2rem, 3vw, 2.8rem);
+      padding-top: 1rem;
+    }
 
-  .card-3d{ perspective: 1200px; }
+    .card-3d {
+      perspective: 1200px;
+    }
 
-  .polaroid{
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3 / 3.6;
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(.2,.9,.25,1);
-    cursor: pointer;
-  }
-  .polaroid.flipped{ transform: rotateY(180deg) !important; }
+    .polaroid {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 3.6;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(.2, .9, .25, 1);
+      cursor: pointer;
+    }
 
-  .p-face{
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    border-radius: 3px;
-    box-shadow: 0 16px 34px rgba(0,0,0,0.35);
-  }
+    .polaroid.flipped {
+      transform: rotateY(180deg) !important;
+    }
 
-  .p-front{
-    background: var(--paper);
-    padding: 14px 14px 0;
-  }
+    .p-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      border-radius: 3px;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+    }
 
-  .p-back{
-    background: var(--blue-soft);
-    color: var(--ink);
-    transform: rotateY(180deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.6rem;
-    text-align: center;
-  }
+    .p-front {
+      background: var(--paper);
+      padding: 14px 14px 0;
+    }
 
-  /* BACK note text — edit these per photo */
-  .p-back p{
-    font-family: var(--font-hand);
-    font-weight: 600;
-    font-size: 1.3rem;
-    line-height: 1.4;
-    margin: 0;
-  }
+    .p-back {
+      background: var(--blue-soft);
+      color: var(--ink);
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.6rem;
+      text-align: center;
+    }
 
-  .tape{
-    position: absolute;
-    top: -10px; left: 50%;
-    transform: translateX(-50%) rotate(-3deg);
-    width: 64px; height: 22px;
-    background: rgba(255, 111, 168, 0.5);
-    border: 1px solid rgba(193, 61, 119, 0.25);
-    z-index: 2;
-  }
+    /* BACK note text — edit these per photo */
+    .p-back p {
+      font-family: var(--font-hand);
+      font-weight: 600;
+      font-size: 1.3rem;
+      line-height: 1.4;
+      margin: 0;
+    }
 
-  /* REPLACE ME: photo-slot is the placeholder — swap contents with <img> */
-  .photo-slot{
-    width: 100%; height: calc(100% - 46px);
-    background: repeating-linear-gradient(135deg, #F2E8F0, #F2E8F0 10px, #E9DDEE 10px, #E9DDEE 20px);
-    border: 2px dashed var(--pink-dark);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    color: var(--pink-dark);
-    text-align: center;
-  }
-  .photo-slot img{ width: 100%; height: 100%; object-fit: cover; }
-  .photo-slot .icon{ font-size: 1.8rem; }
-  .photo-slot .hint{
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.04em;
-    max-width: 18ch;
-    line-height: 1.4;
-  }
+    .tape {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 64px;
+      height: 22px;
+      background: rgba(255, 111, 168, 0.5);
+      border: 1px solid rgba(193, 61, 119, 0.25);
+      z-index: 2;
+    }
 
-  .polaroid-caption{
-    font-family: var(--font-hand);
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: var(--ink);
-    text-align: center;
-    padding: 0.6rem 0.2rem 0.4rem;
-  }
+    /* REPLACE ME: photo-slot is the placeholder — swap contents with <img> */
+    .photo-slot {
+      width: 100%;
+      height: calc(100% - 46px);
+      background: repeating-linear-gradient(135deg, #F2E8F0, #F2E8F0 10px, #E9DDEE 10px, #E9DDEE 20px);
+      border: 2px dashed var(--pink-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      color: var(--pink-dark);
+      text-align: center;
+    }
 
-  .flip-hint{
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--periwinkle-dim);
-    margin-top: 0.6rem;
-  }
+    .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .photo-slot.portrait{ aspect-ratio: 4 / 5; height: auto; }
+    .photo-slot .icon {
+      font-size: 1.8rem;
+    }
 
-  /* =========================================================
+    .photo-slot .hint {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+      max-width: 18ch;
+      line-height: 1.4;
+    }
+
+    .polaroid-caption {
+      font-family: var(--font-hand);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--ink);
+      text-align: center;
+      padding: 0.6rem 0.2rem 0.4rem;
+    }
+
+    .flip-hint {
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--periwinkle-dim);
+      margin-top: 0.6rem;
+    }
+
+    .photo-slot.portrait {
+      aspect-ratio: 4 / 5;
+      height: auto;
+    }
+
+    /* =========================================================
      REASONS — CHECKABLE TICKETS
      ========================================================= */
-  .ticket-tally{
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--blue-soft);
-    margin: -1.6rem 0 1.6rem;
-    letter-spacing: 0.04em;
-  }
+    .ticket-tally {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--blue-soft);
+      margin: -1.6rem 0 1.6rem;
+      letter-spacing: 0.04em;
+    }
 
-  .ticket-list{ display: grid; gap: 1rem; padding-top: 0.4rem; }
+    .ticket-list {
+      display: grid;
+      gap: 1rem;
+      padding-top: 0.4rem;
+    }
 
-  .ticket{
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    align-items: center;
-    gap: 1.1rem;
-    background: var(--night-2);
-    border: 1px solid rgba(91, 140, 255, 0.2);
-    border-left: 4px solid var(--pink);
-    border-radius: 6px;
-    padding: 1.1rem 1.4rem;
-    position: relative;
-    cursor: pointer;
-    transition: background 0.25s ease, border-color 0.25s ease;
-    user-select: none;
-  }
-  .ticket:hover{ background: #182270; }
-  .ticket.checked{ border-left-color: var(--blue); opacity: 0.7; }
-  .ticket.checked .ticket-text{ text-decoration: line-through; text-decoration-color: var(--blue-soft); }
+    .ticket {
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      align-items: center;
+      gap: 1.1rem;
+      background: var(--night-2);
+      border: 1px solid rgba(91, 140, 255, 0.2);
+      border-left: 4px solid var(--pink);
+      border-radius: 6px;
+      padding: 1.1rem 1.4rem;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.25s ease, border-color 0.25s ease;
+      user-select: none;
+    }
 
-  .ticket-check{
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 2px solid var(--periwinkle-dim);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.8rem;
-    color: transparent;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
-  }
-  .ticket.checked .ticket-check{
-    background: var(--blue);
-    border-color: var(--blue);
-    color: var(--night);
-  }
+    .ticket:hover {
+      background: #182270;
+    }
 
-  .ticket-num{
-    font-family: var(--font-mono);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--pink-soft);
-    min-width: 2.2ch;
-  }
+    .ticket.checked {
+      border-left-color: var(--blue);
+      opacity: 0.7;
+    }
 
-  .ticket-text{ font-family: var(--font-body); font-size: 1rem; color: var(--cream); line-height: 1.5; }
-  .ticket-text .lead{
-    display: block;
-    font-family: var(--font-hand);
-    font-size: 1.28rem;
-    color: var(--blue-soft);
-    margin-bottom: 0.15rem;
-  }
+    .ticket.checked .ticket-text {
+      text-decoration: line-through;
+      text-decoration-color: var(--blue-soft);
+    }
 
-  /* =========================================================
+    .ticket-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--periwinkle-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: transparent;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .ticket.checked .ticket-check {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--night);
+    }
+
+    .ticket-num {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--pink-soft);
+      min-width: 2.2ch;
+    }
+
+    .ticket-text {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+
+    .ticket-text .lead {
+      display: block;
+      font-family: var(--font-hand);
+      font-size: 1.28rem;
+      color: var(--blue-soft);
+      margin-bottom: 0.15rem;
+    }
+
+    /* =========================================================
      TIMELINE / TRAIL
      ========================================================= */
-  .trail-wrap{ position: relative; }
-  .trail-svg{ position: absolute; left: 28px; top: 0; height: 100%; width: 40px; }
-  @media (min-width: 720px){
-    .trail-svg{ left: 50%; transform: translateX(-50%); width: 60px; }
-  }
-  .trail-path{
-    stroke: url(#trailGradient);
-    stroke-width: 3;
-    stroke-dasharray: 2 14;
-    stroke-linecap: round;
-    fill: none;
-    opacity: 0.75;
-  }
+    .trail-wrap {
+      position: relative;
+    }
 
-  .timeline-item{
-    display: grid;
-    grid-template-columns: 70px 1fr;
-    gap: 1.4rem;
-    margin-bottom: clamp(2.5rem, 6vw, 4rem);
-    align-items: start;
-  }
-  @media (min-width: 720px){
-    .timeline-item{ grid-template-columns: 1fr 90px 1fr; }
-    .timeline-item .pin{ order: 2; margin: 0 auto; }
-    .timeline-item .t-content{ order: 1; }
-    .timeline-item .t-side{ order: 3; }
-    .timeline-item:nth-child(even) .t-content{ order: 3; }
-    .timeline-item:nth-child(even) .t-side{ order: 1; }
-  }
+    .trail-svg {
+      position: absolute;
+      left: 28px;
+      top: 0;
+      height: 100%;
+      width: 40px;
+    }
 
-  .pin{
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--pink), var(--blue));
-    color: var(--cream);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0 0 0 6px rgba(91, 140, 255, 0.16);
-  }
+    @media (min-width: 720px) {
+      .trail-svg {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+      }
+    }
 
-  .t-content{
-    background: var(--night-2);
-    border: 1px solid rgba(255, 111, 168, 0.16);
-    border-radius: 10px;
-    padding: 1.3rem 1.5rem;
-  }
+    .trail-path {
+      stroke: url(#trailGradient);
+      stroke-width: 3;
+      stroke-dasharray: 2 14;
+      stroke-linecap: round;
+      fill: none;
+      opacity: 0.75;
+    }
 
-  .t-date{
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--pink-soft);
-    margin: 0 0 0.4rem;
-  }
-  .t-title{ font-family: var(--font-hand); font-weight: 700; font-size: 1.7rem; color: var(--cream); margin: 0 0 0.4rem; }
-  .t-text{ font-family: var(--font-body); color: var(--periwinkle); font-size: 0.96rem; line-height: 1.6; margin: 0; }
-  .t-side .photo-slot{ max-width: 220px; margin: 0 auto; height: 260px; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 1.4rem;
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+      align-items: start;
+    }
 
-  /* =========================================================
+    @media (min-width: 720px) {
+      .timeline-item {
+        grid-template-columns: 1fr 90px 1fr;
+      }
+
+      .timeline-item .pin {
+        order: 2;
+        margin: 0 auto;
+      }
+
+      .timeline-item .t-content {
+        order: 1;
+      }
+
+      .timeline-item .t-side {
+        order: 3;
+      }
+
+      .timeline-item:nth-child(even) .t-content {
+        order: 3;
+      }
+
+      .timeline-item:nth-child(even) .t-side {
+        order: 1;
+      }
+    }
+
+    .pin {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 0 0 6px rgba(91, 140, 255, 0.16);
+    }
+
+    .t-content {
+      background: var(--night-2);
+      border: 1px solid rgba(255, 111, 168, 0.16);
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+    }
+
+    .t-date {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pink-soft);
+      margin: 0 0 0.4rem;
+    }
+
+    .t-title {
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: var(--cream);
+      margin: 0 0 0.4rem;
+    }
+
+    .t-text {
+      font-family: var(--font-body);
+      color: var(--periwinkle);
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .t-side .photo-slot {
+      max-width: 220px;
+      margin: 0 auto;
+      height: 260px;
+    }
+
+    /* =========================================================
      INSIDE JOKES — STICKY NOTES
      ========================================================= */
-  .sticky-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.6rem;
-    padding-top: 1rem;
-  }
-  .sticky{
-    background: var(--blue-soft);
-    color: var(--ink);
-    padding: 1.4rem 1.3rem 1.6rem;
-    border-radius: 2px;
-    font-family: var(--font-hand);
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.35;
-    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-    min-height: 140px;
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-  }
-  .sticky:hover{ transform: translateY(-6px) rotate(0deg) !important; }
-  .sticky:nth-child(2n){ background: var(--pink-soft); transform: rotate(-2deg); }
-  .sticky:nth-child(3n){ background: var(--paper); transform: rotate(2deg); }
-  .sticky:nth-child(1){ transform: rotate(-3deg); }
-  .sticky:nth-child(4){ transform: rotate(3deg); }
+    .sticky-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.6rem;
+      padding-top: 1rem;
+    }
 
-  /* =========================================================
+    .sticky {
+      background: var(--blue-soft);
+      color: var(--ink);
+      padding: 1.4rem 1.3rem 1.6rem;
+      border-radius: 2px;
+      font-family: var(--font-hand);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.35;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      min-height: 140px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .sticky:hover {
+      transform: translateY(-6px) rotate(0deg) !important;
+    }
+
+    .sticky:nth-child(2n) {
+      background: var(--pink-soft);
+      transform: rotate(-2deg);
+    }
+
+    .sticky:nth-child(3n) {
+      background: var(--paper);
+      transform: rotate(2deg);
+    }
+
+    .sticky:nth-child(1) {
+      transform: rotate(-3deg);
+    }
+
+    .sticky:nth-child(4) {
+      transform: rotate(3deg);
+    }
+
+    /* =========================================================
      CLOSING
      ========================================================= */
-  .closing{
-    text-align: center;
-    background: linear-gradient(180deg, var(--deep) 0%, var(--night-2) 60%, var(--night) 100%);
-    padding: clamp(5rem, 12vh, 8rem) 6vw;
-    position: relative;
-    overflow: hidden;
-  }
-  .closing .orb-1{ width: 340px; height: 340px; background: var(--pink); top: -60px; right: -100px; }
-  .closing .orb-2{ width: 300px; height: 300px; background: var(--blue); bottom: -80px; left: -80px; animation-delay: -8s; }
+    .closing {
+      text-align: center;
+      background: linear-gradient(180deg, var(--deep) 0%, var(--night-2) 60%, var(--night) 100%);
+      padding: clamp(5rem, 12vh, 8rem) 6vw;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .closing h2{
-    position: relative;
-    font-family: var(--font-hand);
-    font-weight: 700;
-    font-size: clamp(2.6rem, 7vw, 4.6rem);
-    color: var(--cream);
-    margin: 0 0 1rem;
-  }
-  .closing p{
-    position: relative;
-    font-family: var(--font-body);
-    color: var(--periwinkle);
-    max-width: 48ch;
-    margin: 0 auto 2.4rem;
-    line-height: 1.7;
-    font-size: 1.05rem;
-  }
+    .closing .orb-1 {
+      width: 340px;
+      height: 340px;
+      background: var(--pink);
+      top: -60px;
+      right: -100px;
+    }
 
-  .secret-btn{
-    position: relative;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: transparent;
-    color: var(--blue-soft);
-    border: 1.5px dashed var(--blue-soft);
-    padding: 0.9rem 1.8rem;
-    border-radius: 40px;
-    cursor: pointer;
-    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
-  }
-  .secret-btn:hover{
-    background: linear-gradient(90deg, var(--blue), var(--pink));
-    color: var(--night);
-    border-color: transparent;
-    transform: translateY(-2px);
-  }
-  .secret-btn:focus-visible{ outline: 2px solid var(--cream); outline-offset: 3px; }
+    .closing .orb-2 {
+      width: 300px;
+      height: 300px;
+      background: var(--blue);
+      bottom: -80px;
+      left: -80px;
+      animation-delay: -8s;
+    }
 
-  .secret-message{
-    position: relative;
-    max-width: 480px;
-    margin: 2rem auto 0;
-    background: var(--paper);
-    color: var(--ink);
-    padding: 1.8rem 2rem;
-    border-radius: 6px;
-    font-family: var(--font-hand);
-    font-size: 1.4rem;
-    line-height: 1.5;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    display: none;
-    transform: rotate(-1deg);
-  }
-  .secret-message.show{ display: block; animation: pop 0.5s ease; }
-  @keyframes pop{
-    0%{ transform: rotate(-1deg) scale(0.85); opacity: 0; }
-    100%{ transform: rotate(-1deg) scale(1); opacity: 1; }
-  }
+    .closing h2 {
+      position: relative;
+      font-family: var(--font-hand);
+      font-weight: 700;
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      color: var(--cream);
+      margin: 0 0 1rem;
+    }
 
-  footer{
-    text-align: center;
-    padding: 2.4rem 6vw 3rem;
-    background: var(--night);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--periwinkle-dim);
-    letter-spacing: 0.04em;
-  }
-  footer .heart{ color: var(--pink); }
+    .closing p {
+      position: relative;
+      font-family: var(--font-body);
+      color: var(--periwinkle);
+      max-width: 48ch;
+      margin: 0 auto 2.4rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
 
-</style>
+    .secret-btn {
+      position: relative;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--blue-soft);
+      border: 1.5px dashed var(--blue-soft);
+      padding: 0.9rem 1.8rem;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    }
+
+    .secret-btn:hover {
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: var(--night);
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    .secret-btn:focus-visible {
+      outline: 2px solid var(--cream);
+      outline-offset: 3px;
+    }
+
+    .secret-message {
+      position: relative;
+      max-width: 480px;
+      margin: 2rem auto 0;
+      background: var(--paper);
+      color: var(--ink);
+      padding: 1.8rem 2rem;
+      border-radius: 6px;
+      font-family: var(--font-hand);
+      font-size: 1.4rem;
+      line-height: 1.5;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      display: none;
+      transform: rotate(-1deg);
+    }
+
+    .secret-message.show {
+      display: block;
+      animation: pop 0.5s ease;
+    }
+
+    @keyframes pop {
+      0% {
+        transform: rotate(-1deg) scale(0.85);
+        opacity: 0;
+      }
+
+      100% {
+        transform: rotate(-1deg) scale(1);
+        opacity: 1;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.4rem 6vw 3rem;
+      background: var(--night);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--periwinkle-dim);
+      letter-spacing: 0.04em;
+    }
+
+    footer .heart {
+      color: var(--pink);
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="progress-ribbon" id="progressRibbon"></div>
+  <div class="progress-ribbon" id="progressRibbon"></div>
 
-<!-- =========================================================
+  <!-- =========================================================
      HERO
      ========================================================= -->
-<div class="hero">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="stars" id="stars"></div>
+  <div class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="stars" id="stars"></div>
 
-  <p class="hero-eyebrow">a little something for</p>
-  <h1>365 Days of<br><span class="accent">Christy</span> &amp; Salman</h1>
-  <p class="hero-sub">
-    One year ago the two of you became friends across an ocean — and somehow
-    the distance never mattered. <strong>Happy friendship anniversary, Christy.</strong>
-  </p>
+    <p class="hero-eyebrow">a little something for</p>
+    <h1>365 Days of<br><span class="accent">Christy</span> &amp; Salman</h1>
+    <p class="hero-sub">
+      One year ago the two of you became friends across an ocean — and somehow
+      the distance never mattered. <strong>Happy friendship anniversary, Christy.</strong>
+    </p>
 
-  <div class="day-stamp">
-    <span class="num" id="dayCount">365</span>
-    <span class="label">days &amp; counting</span>
+    <div class="day-stamp">
+      <span class="num" id="dayCount">365</span>
+      <span class="label">days &amp; counting</span>
+    </div>
+
+    <div class="scroll-cue">
+      <span>scroll the story</span>
+      <span class="arrow"></span>
+    </div>
   </div>
 
-  <div class="scroll-cue">
-    <span>scroll the story</span>
-    <span class="arrow"></span>
-  </div>
-</div>
-
-<!-- =========================================================
+  <!-- =========================================================
      THE LETTER
      ========================================================= -->
-<section class="section-deep">
-  <div class="wrap">
-    <div class="letter-card reveal">
-      <p class="eyebrow" style="color:var(--pink-dark)">a note, just for you</p>
-      <h2 class="letter-heading">Dear Christy,</h2>
-      <p class="letter-body">
-        A year ago I had no idea how much you'd end up meaning to me. Different
-        cities, different time zones, and somehow you still feel like home.
-        Thank you for the late-night voice notes, the random check-ins, and for
-        always showing up — even from thousands of miles away. Here's to the
-        friend who turned into family.
-      </p>
-      <p class="letter-sign">— always, your bestie</p>
+  <section class="section-deep">
+    <div class="wrap">
+      <div class="letter-card reveal">
+        <p class="eyebrow" style="color:var(--pink-dark)">a note, just for you</p>
+        <h2 class="letter-heading">Dear Christy,</h2>
+        <p class="letter-body">
+          A year ago I had no idea how much you'd end up meaning to me. Different
+          cities, different time zones, and somehow you still feel like home.
+          Thank you for the late-night voice notes, the random check-ins, and for
+          always showing up — even from thousands of miles away. Here's to the
+          friend who turned into family.
+        </p>
+        <p class="letter-sign">— always, your bestie</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =========================================================
+  <!-- =========================================================
      GALLERY — click a photo to flip it
      ========================================================= -->
-<section class="section-night">
-  <div class="wrap">
-    <p class="eyebrow reveal">the gallery wall</p>
-    <h2 class="section-title reveal">Us, <span class="accent">in pictures</span></h2>
-    <p class="section-lede reveal">Every screenshot, selfie, and blurry video call still — pin your favorites here. Tap a photo to flip it.</p>
+  <section class="section-night">
+    <div class="wrap">
+      <p class="eyebrow reveal">the gallery wall</p>
+      <h2 class="section-title reveal">Us, <span class="accent">in pictures</span></h2>
+      <p class="section-lede reveal">Every screenshot, selfie, and blurry video call still — pin your favorites here.
+        Tap a photo to flip it.</p>
 
-    <div class="gallery-grid">
-      <div class="reveal card-3d">
-        <div class="polaroid" data-flip>
-          <div class="p-face p-front">
-            <div class="tape"></div>
-            <div class="photo-slot"><span class="icon"><img src="./one.jpeg" alt="..."></span><span class="hint"></span></div>
-            <p class="polaroid-caption">the day it all started</p>
+      <div class="gallery-grid">
+        <div class="reveal card-3d">
+          <div class="polaroid" data-flip>
+            <div class="p-face p-front">
+              <div class="tape"></div>
+              <div class="photo-slot"><span class="icon"><img src="./one.jpeg" alt="..."></span><span
+                  class="hint"></span></div>
+              <p class="polaroid-caption">the day it all started</p>
+            </div>
+            <div class="p-face p-back">
+              <p>this larki is still same beautiful as before 😍💫</p>
+            </div>
           </div>
-          <div class="p-face p-back"><p>this larki is still same beautiful as before 😍💫</p></div>
+          <p class="flip-hint">tap to flip</p>
         </div>
-        <p class="flip-hint">tap to flip</p>
-      </div>
-      <div class="reveal card-3d">
-        <div class="polaroid" data-flip>
-          <div class="p-face p-front">
-            <div class="tape"></div>
-            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
-            <p class="polaroid-caption">first video call chaos</p>
+        <div class="reveal card-3d">
+          <div class="polaroid" data-flip>
+            <div class="p-face p-front">
+              <div class="tape"></div>
+              <div class="photo-slot"><span class="icon"><img src="./two.jpg" alt="..."></span><span class="hint">add
+                  photo</span></div>
+              <p class="polaroid-caption">first video call chaos</p>
+            </div>
+            <div class="p-face p-back">
+              <p>our lovely and silly video calls 😜</p>
+            </div>
           </div>
-          <div class="p-face p-back"><p>write a little memory here ✎</p></div>
+          <p class="flip-hint">tap to flip</p>
         </div>
-        <p class="flip-hint">tap to flip</p>
-      </div>
-      <div class="reveal card-3d">
-        <div class="polaroid" data-flip>
-          <div class="p-face p-front">
-            <div class="tape"></div>
-            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
-            <p class="polaroid-caption">that one inside joke</p>
+        <div class="reveal card-3d">
+          <div class="polaroid" data-flip>
+            <div class="p-face p-front">
+              <div class="tape"></div>
+              <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
+              <p class="polaroid-caption">that one inside joke</p>
+            </div>
+            <div class="p-face p-back">
+              <p>write a little memory here ✎</p>
+            </div>
           </div>
-          <div class="p-face p-back"><p>write a little memory here ✎</p></div>
+          <p class="flip-hint">tap to flip</p>
         </div>
-        <p class="flip-hint">tap to flip</p>
-      </div>
-      <div class="reveal card-3d">
-        <div class="polaroid" data-flip>
-          <div class="p-face p-front">
-            <div class="tape"></div>
-            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
-            <p class="polaroid-caption">3am voice notes energy</p>
+        <div class="reveal card-3d">
+          <div class="polaroid" data-flip>
+            <div class="p-face p-front">
+              <div class="tape"></div>
+              <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
+              <p class="polaroid-caption">3am voice notes energy</p>
+            </div>
+            <div class="p-face p-back">
+              <p>write a little memory here ✎</p>
+            </div>
           </div>
-          <div class="p-face p-back"><p>write a little memory here ✎</p></div>
+          <p class="flip-hint">tap to flip</p>
         </div>
-        <p class="flip-hint">tap to flip</p>
-      </div>
-      <div class="reveal card-3d">
-        <div class="polaroid" data-flip>
-          <div class="p-face p-front">
-            <div class="tape"></div>
-            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
-            <p class="polaroid-caption">the screenshot that lives rent free</p>
+        <div class="reveal card-3d">
+          <div class="polaroid" data-flip>
+            <div class="p-face p-front">
+              <div class="tape"></div>
+              <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
+              <p class="polaroid-caption">the screenshot that lives rent free</p>
+            </div>
+            <div class="p-face p-back">
+              <p>write a little memory here ✎</p>
+            </div>
           </div>
-          <div class="p-face p-back"><p>write a little memory here ✎</p></div>
+          <p class="flip-hint">tap to flip</p>
         </div>
-        <p class="flip-hint">tap to flip</p>
-      </div>
-      <div class="reveal card-3d">
-        <div class="polaroid" data-flip>
-          <div class="p-face p-front">
-            <div class="tape"></div>
-            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
-            <p class="polaroid-caption">a favorite, no caption needed</p>
+        <div class="reveal card-3d">
+          <div class="polaroid" data-flip>
+            <div class="p-face p-front">
+              <div class="tape"></div>
+              <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
+              <p class="polaroid-caption">a favorite, no caption needed</p>
+            </div>
+            <div class="p-face p-back">
+              <p>write a little memory here ✎</p>
+            </div>
           </div>
-          <div class="p-face p-back"><p>write a little memory here ✎</p></div>
+          <p class="flip-hint">tap to flip</p>
         </div>
-        <p class="flip-hint">tap to flip</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =========================================================
+  <!-- =========================================================
      REASONS — CHECKABLE TOP 10
      ========================================================= -->
-<section class="section-deep">
-  <div class="wrap">
-    <p class="eyebrow reveal">for the record</p>
-    <h2 class="section-title reveal">10 reasons you're <span class="accent2">my person</span></h2>
-    <p class="section-lede reveal">Edit these to make them truly, unmistakably about her. Tap each one to check it off.</p>
-    <p class="ticket-tally reveal"><span id="checkedCount">0</span> / 10 checked off</p>
+  <section class="section-deep">
+    <div class="wrap">
+      <p class="eyebrow reveal">for the record</p>
+      <h2 class="section-title reveal">10 reasons you're <span class="accent2">my person</span></h2>
+      <p class="section-lede reveal">Edit these to make them truly, unmistakably about her. Tap each one to check it
+        off.</p>
+      <p class="ticket-tally reveal"><span id="checkedCount">0</span> / 10 checked off</p>
 
-    <div class="ticket-list">
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">01</span><p class="ticket-text"><span class="lead">You listen like it matters.</span>Every time, without fail.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">02</span><p class="ticket-text"><span class="lead">You make far feel close.</span>Distance never once got in the way.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">03</span><p class="ticket-text"><span class="lead">You remember the small stuff.</span>The tiny details most people forget.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">04</span><p class="ticket-text"><span class="lead">You show up honestly.</span>No filters, no performance, just you.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">05</span><p class="ticket-text"><span class="lead">You make me laugh too hard.</span>The kind that makes my stomach hurt.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">06</span><p class="ticket-text"><span class="lead">You tell me the truth.</span>Gently, but you always tell me.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">07</span><p class="ticket-text"><span class="lead">You celebrate my wins loudly.</span>Like they're your own.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">08</span><p class="ticket-text"><span class="lead">You never let a silence last.</span>You always reach out first.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">09</span><p class="ticket-text"><span class="lead">You've got the best energy.</span>Every call somehow gets better after.</p></div>
-      <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">10</span><p class="ticket-text"><span class="lead">You're just you.</span>And that's exactly who I needed.</p></div>
+      <div class="ticket-list">
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">01</span>
+          <p class="ticket-text"><span class="lead">You listen like it matters.</span>Every time, without fail.</p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">02</span>
+          <p class="ticket-text"><span class="lead">You make far feel close.</span>Distance never once got in the way.
+          </p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">03</span>
+          <p class="ticket-text"><span class="lead">You remember the small stuff.</span>The tiny details most people
+            forget.</p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">04</span>
+          <p class="ticket-text"><span class="lead">You show up honestly.</span>No filters, no performance, just you.
+          </p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">05</span>
+          <p class="ticket-text"><span class="lead">You make me laugh too hard.</span>The kind that makes my stomach
+            hurt.</p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">06</span>
+          <p class="ticket-text"><span class="lead">You tell me the truth.</span>Gently, but you always tell me.</p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">07</span>
+          <p class="ticket-text"><span class="lead">You celebrate my wins loudly.</span>Like they're your own.</p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">08</span>
+          <p class="ticket-text"><span class="lead">You never let a silence last.</span>You always reach out first.</p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">09</span>
+          <p class="ticket-text"><span class="lead">You've got the best energy.</span>Every call somehow gets better
+            after.</p>
+        </div>
+        <div class="ticket reveal" data-ticket><span class="ticket-check">✓</span><span class="ticket-num">10</span>
+          <p class="ticket-text"><span class="lead">You're just you.</span>And that's exactly who I needed.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =========================================================
+  <!-- =========================================================
      TIMELINE / TRAIL
      ========================================================= -->
-<section class="section-night2">
-  <div class="wrap">
-    <p class="eyebrow reveal">the journey</p>
-    <h2 class="section-title reveal">Our story <span class="accent">so far</span></h2>
-    <p class="section-lede reveal">Swap in the real dates and moments — this is just the shape of it.</p>
+  <section class="section-night2">
+    <div class="wrap">
+      <p class="eyebrow reveal">the journey</p>
+      <h2 class="section-title reveal">Our story <span class="accent">so far</span></h2>
+      <p class="section-lede reveal">Swap in the real dates and moments — this is just the shape of it.</p>
 
-    <div class="trail-wrap">
-      <svg class="trail-svg" preserveAspectRatio="none" viewBox="0 0 60 800">
-        <defs>
-          <linearGradient id="trailGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#5B8CFF"></stop>
-            <stop offset="100%" stop-color="#FF6FA8"></stop>
-          </linearGradient>
-        </defs>
-        <path class="trail-path" d="M30,0 C10,150 50,250 30,400 C10,550 50,650 30,800"></path>
-      </svg>
+      <div class="trail-wrap">
+        <svg class="trail-svg" preserveAspectRatio="none" viewBox="0 0 60 800">
+          <defs>
+            <linearGradient id="trailGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5B8CFF"></stop>
+              <stop offset="100%" stop-color="#FF6FA8"></stop>
+            </linearGradient>
+          </defs>
+          <path class="trail-path" d="M30,0 C10,150 50,250 30,400 C10,550 50,650 30,800"></path>
+        </svg>
 
-      <div class="timeline-item reveal">
-        <div class="pin">1</div>
-        <div class="t-content">
-          <p class="t-date">month one</p>
-          <h3 class="t-title">How we met</h3>
-          <p class="t-text">Fill in the story of your very first conversation — the one that started it all.</p>
+        <div class="timeline-item reveal">
+          <div class="pin">1</div>
+          <div class="t-content">
+            <p class="t-date">month one</p>
+            <h3 class="t-title">How we met</h3>
+            <p class="t-text">Fill in the story of your very first conversation — the one that started it all.</p>
+          </div>
+          <div class="t-side">
+            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+          </div>
         </div>
-        <div class="t-side"><div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div></div>
-      </div>
 
-      <div class="timeline-item reveal">
-        <div class="pin">2</div>
-        <div class="t-content">
-          <p class="t-date">a few months in</p>
-          <h3 class="t-title">The moment it got real</h3>
-          <p class="t-text">Maybe a late-night talk, a shared secret, or the day you knew this friendship was different.</p>
+        <div class="timeline-item reveal">
+          <div class="pin">2</div>
+          <div class="t-content">
+            <p class="t-date">a few months in</p>
+            <h3 class="t-title">The moment it got real</h3>
+            <p class="t-text">Maybe a late-night talk, a shared secret, or the day you knew this friendship was
+              different.</p>
+          </div>
+          <div class="t-side">
+            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+          </div>
         </div>
-        <div class="t-side"><div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div></div>
-      </div>
 
-      <div class="timeline-item reveal">
-        <div class="pin">3</div>
-        <div class="t-content">
-          <p class="t-date">halfway through</p>
-          <h3 class="t-title">The hardest stretch</h3>
-          <p class="t-text">A tough season she helped you through, or one you helped her through.</p>
+        <div class="timeline-item reveal">
+          <div class="pin">3</div>
+          <div class="t-content">
+            <p class="t-date">halfway through</p>
+            <h3 class="t-title">The hardest stretch</h3>
+            <p class="t-text">A tough season she helped you through, or one you helped her through.</p>
+          </div>
+          <div class="t-side">
+            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+          </div>
         </div>
-        <div class="t-side"><div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div></div>
-      </div>
 
-      <div class="timeline-item reveal">
-        <div class="pin">4</div>
-        <div class="t-content">
-          <p class="t-date">today</p>
-          <h3 class="t-title">One year later</h3>
-          <p class="t-text">Here you both are — still talking, still laughing, still each other's person.</p>
+        <div class="timeline-item reveal">
+          <div class="pin">4</div>
+          <div class="t-content">
+            <p class="t-date">today</p>
+            <h3 class="t-title">One year later</h3>
+            <p class="t-text">Here you both are — still talking, still laughing, still each other's person.</p>
+          </div>
+          <div class="t-side">
+            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+          </div>
         </div>
-        <div class="t-side"><div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =========================================================
+  <!-- =========================================================
      INSIDE JOKES
      ========================================================= -->
-<section class="section-deep">
-  <div class="wrap">
-    <p class="eyebrow reveal">just between us</p>
-    <h2 class="section-title reveal">Things only <span class="accent2">we</span> would get</h2>
-    <p class="section-lede reveal">Swap these out for your actual inside jokes and nicknames.</p>
+  <section class="section-deep">
+    <div class="wrap">
+      <p class="eyebrow reveal">just between us</p>
+      <h2 class="section-title reveal">Things only <span class="accent2">we</span> would get</h2>
+      <p class="section-lede reveal">Swap these out for your actual inside jokes and nicknames.</p>
 
-    <div class="sticky-grid">
-      <div class="sticky reveal">"the incident" — you know exactly which one</div>
-      <div class="sticky reveal">our secret nickname for each other</div>
-      <div class="sticky reveal">that one voice note we still quote</div>
-      <div class="sticky reveal">the emoji that means "call me now"</div>
+      <div class="sticky-grid">
+        <div class="sticky reveal">"the incident" — you know exactly which one</div>
+        <div class="sticky reveal">our secret nickname for each other</div>
+        <div class="sticky reveal">that one voice note we still quote</div>
+        <div class="sticky reveal">the emoji that means "call me now"</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- =========================================================
+  <!-- =========================================================
      CLOSING
      ========================================================= -->
-<section class="closing">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <p class="eyebrow reveal" style="color:var(--pink-soft); position:relative;">to another year</p>
-  <h2 class="reveal">Here's to <span style="color:var(--blue-soft)">year two</span>, Christy.</h2>
-  <p class="reveal">
-    Thank you for a whole year of showing up, laughing loud, and being exactly
-    the friend I needed — no matter the distance. Love you, bestie.
-  </p>
-  <button class="secret-btn reveal" id="secretBtn">tap for a secret message</button>
-  <div class="secret-message" id="secretMessage">
-    You didn't have to become my best friend. You chose to, every single day
-    for a year. I hope I get to choose you right back for a hundred more. 💙💗
-  </div>
-</section>
+  <section class="closing">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <p class="eyebrow reveal" style="color:var(--pink-soft); position:relative;">to another year</p>
+    <h2 class="reveal">Here's to <span style="color:var(--blue-soft)">year two</span>, Christy.</h2>
+    <p class="reveal">
+      Thank you for a whole year of showing up, laughing loud, and being exactly
+      the friend I needed — no matter the distance. Love you, bestie.
+    </p>
+    <button class="secret-btn reveal" id="secretBtn">tap for a secret message</button>
+    <div class="secret-message" id="secretMessage">
+      You didn't have to become my best friend. You chose to, every single day
+      for a year. I hope I get to choose you right back for a hundred more. 💙💗
+    </div>
+  </section>
 
-<footer>
-  made with <span class="heart">♥</span> for one whole year of Christy &amp; you
-</footer>
+  <footer>
+    made with <span class="heart">♥</span> for one whole year of Christy &amp; you
+  </footer>
 
-<script>
-  // ---------- ambient stars ----------
-  var starsEl = document.getElementById('stars');
-  var starCount = window.innerWidth < 600 ? 22 : 45;
-  for (var i = 0; i < starCount; i++){
-    var s = document.createElement('div');
-    s.className = 'star';
-    s.style.left = (Math.random() * 100) + '%';
-    s.style.top = (Math.random() * 100) + '%';
-    s.style.animationDelay = (Math.random() * 4) + 's';
-    starsEl.appendChild(s);
-  }
-
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isTouch = window.matchMedia('(hover: none)').matches;
-
-  // ---------- confetti ----------
-  var confettiColors = ['#FF6FA8', '#5B8CFF', '#FFC2DE', '#B9D0FF', '#FFF8FB'];
-  function burstConfetti(container, count){
-    if (reduceMotion) return;
-    for (var i = 0; i < count; i++){
-      var p = document.createElement('div');
-      p.className = 'confetti-piece';
-      p.style.left = (Math.random() * 100) + '%';
-      p.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-      p.style.animationDuration = (2.5 + Math.random() * 2) + 's';
-      p.style.animationDelay = (Math.random() * 0.6) + 's';
-      container.appendChild(p);
-      (function(el){ setTimeout(function(){ el.remove(); }, 5000); })(p);
+  <script>
+    // ---------- ambient stars ----------
+    var starsEl = document.getElementById('stars');
+    var starCount = window.innerWidth < 600 ? 22 : 45;
+    for (var i = 0; i < starCount; i++) {
+      var s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = (Math.random() * 100) + '%';
+      s.style.top = (Math.random() * 100) + '%';
+      s.style.animationDelay = (Math.random() * 4) + 's';
+      starsEl.appendChild(s);
     }
-  }
-  burstConfetti(document.querySelector('.hero'), 26);
 
-  // ---------- day counter ----------
-  // EDIT THIS: set the actual date your friendship started.
-  var startDate = new Date();
-  startDate.setDate(startDate.getDate() - 365);
-  var daysEl = document.getElementById('dayCount');
-  var diffDays = Math.max(0, Math.round((new Date() - startDate) / 86400000));
-  daysEl.textContent = diffDays.toLocaleString();
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isTouch = window.matchMedia('(hover: none)').matches;
 
-  // ---------- scroll reveal ----------
-  var revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function(el){ io.observe(el); });
-  } else {
-    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
-  }
+    // ---------- confetti ----------
+    var confettiColors = ['#FF6FA8', '#5B8CFF', '#FFC2DE', '#B9D0FF', '#FFF8FB'];
+    function burstConfetti(container, count) {
+      if (reduceMotion) return;
+      for (var i = 0; i < count; i++) {
+        var p = document.createElement('div');
+        p.className = 'confetti-piece';
+        p.style.left = (Math.random() * 100) + '%';
+        p.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+        p.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+        p.style.animationDelay = (Math.random() * 0.6) + 's';
+        container.appendChild(p);
+        (function (el) { setTimeout(function () { el.remove(); }, 5000); })(p);
+      }
+    }
+    burstConfetti(document.querySelector('.hero'), 26);
 
-  // ---------- scroll progress ribbon ----------
-  var ribbon = document.getElementById('progressRibbon');
-  function updateRibbon(){
-    var h = document.documentElement;
-    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-    ribbon.style.width = scrolled + '%';
-  }
-  window.addEventListener('scroll', updateRibbon, { passive: true });
-  updateRibbon();
+    // ---------- day counter ----------
+    // EDIT THIS: set the actual date your friendship started.
+    var startDate = new Date();
+    startDate.setDate(startDate.getDate() - 365);
+    var daysEl = document.getElementById('dayCount');
+    var diffDays = Math.max(0, Math.round((new Date() - startDate) / 86400000));
+    daysEl.textContent = diffDays.toLocaleString();
 
-  // ---------- cursor sparkles ----------
-  if (!isTouch && !reduceMotion){
-    var lastSpark = 0;
-    document.addEventListener('mousemove', function(e){
-      var now = Date.now();
-      if (now - lastSpark < 45) return;
-      lastSpark = now;
-      var sp = document.createElement('div');
-      sp.className = 'sparkle';
-      sp.style.left = (e.clientX - 3) + 'px';
-      sp.style.top = (e.clientY - 3) + 'px';
-      sp.style.background = Math.random() > 0.5 ? '#5B8CFF' : '#FF6FA8';
-      document.body.appendChild(sp);
-      setTimeout(function(){ sp.remove(); }, 900);
-    });
-  }
+    // ---------- scroll reveal ----------
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
 
-  // ---------- polaroid flip + gentle tilt ----------
-  document.querySelectorAll('[data-flip]').forEach(function(card){
-    card.addEventListener('click', function(){
-      card.classList.toggle('flipped');
-    });
-    if (!isTouch){
-      card.addEventListener('mousemove', function(e){
-        if (card.classList.contains('flipped')) return;
-        var r = card.getBoundingClientRect();
-        var x = (e.clientX - r.left) / r.width - 0.5;
-        var y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = 'rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 14) + 'deg)';
-      });
-      card.addEventListener('mouseleave', function(){
-        if (!card.classList.contains('flipped')) card.style.transform = '';
+    // ---------- scroll progress ribbon ----------
+    var ribbon = document.getElementById('progressRibbon');
+    function updateRibbon() {
+      var h = document.documentElement;
+      var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      ribbon.style.width = scrolled + '%';
+    }
+    window.addEventListener('scroll', updateRibbon, { passive: true });
+    updateRibbon();
+
+    // ---------- cursor sparkles ----------
+    if (!isTouch && !reduceMotion) {
+      var lastSpark = 0;
+      document.addEventListener('mousemove', function (e) {
+        var now = Date.now();
+        if (now - lastSpark < 45) return;
+        lastSpark = now;
+        var sp = document.createElement('div');
+        sp.className = 'sparkle';
+        sp.style.left = (e.clientX - 3) + 'px';
+        sp.style.top = (e.clientY - 3) + 'px';
+        sp.style.background = Math.random() > 0.5 ? '#5B8CFF' : '#FF6FA8';
+        document.body.appendChild(sp);
+        setTimeout(function () { sp.remove(); }, 900);
       });
     }
-  });
 
-  // ---------- checkable reasons ----------
-  var checkedCountEl = document.getElementById('checkedCount');
-  var tickets = document.querySelectorAll('[data-ticket]');
-  tickets.forEach(function(t){
-    t.addEventListener('click', function(){
-      t.classList.toggle('checked');
-      var count = document.querySelectorAll('[data-ticket].checked').length;
-      checkedCountEl.textContent = count;
-      if (t.classList.contains('checked')) burstConfetti(t, 6);
+    // ---------- polaroid flip + gentle tilt ----------
+    document.querySelectorAll('[data-flip]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        card.classList.toggle('flipped');
+      });
+      if (!isTouch) {
+        card.addEventListener('mousemove', function (e) {
+          if (card.classList.contains('flipped')) return;
+          var r = card.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = 'rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 14) + 'deg)';
+        });
+        card.addEventListener('mouseleave', function () {
+          if (!card.classList.contains('flipped')) card.style.transform = '';
+        });
+      }
     });
-  });
 
-  // ---------- secret message ----------
-  var secretBtn = document.getElementById('secretBtn');
-  var secretMessage = document.getElementById('secretMessage');
-  secretBtn.addEventListener('click', function(){
-    var willShow = !secretMessage.classList.contains('show');
-    secretMessage.classList.toggle('show');
-    secretBtn.textContent = willShow ? 'shh, close it' : 'tap for a secret message';
-    if (willShow) burstConfetti(document.querySelector('.closing'), 24);
-  });
-</script>
+    // ---------- checkable reasons ----------
+    var checkedCountEl = document.getElementById('checkedCount');
+    var tickets = document.querySelectorAll('[data-ticket]');
+    tickets.forEach(function (t) {
+      t.addEventListener('click', function () {
+        t.classList.toggle('checked');
+        var count = document.querySelectorAll('[data-ticket].checked').length;
+        checkedCountEl.textContent = count;
+        if (t.classList.contains('checked')) burstConfetti(t, 6);
+      });
+    });
+
+    // ---------- secret message ----------
+    var secretBtn = document.getElementById('secretBtn');
+    var secretMessage = document.getElementById('secretMessage');
+    secretBtn.addEventListener('click', function () {
+      var willShow = !secretMessage.classList.contains('show');
+      secretMessage.classList.toggle('show');
+      secretBtn.textContent = willShow ? 'shh, close it' : 'tap for a secret message';
+      if (willShow) burstConfetti(document.querySelector('.closing'), 24);
+    });
+  </script>
 
 </body>
+
 </html>
