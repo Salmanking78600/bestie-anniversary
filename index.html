@@ -21,9 +21,9 @@
          <img src="photos/beach-day.jpg" alt="Christy and me at the beach">
        </div>
 
-     Keep photos roughly square (1:1) for the polaroids and
-     roughly 4:5 for the timeline photos for the best fit.
-     Search "REPLACE ME" to jump to every spot quickly.
+     All photo-slots are locked to the same size and shape now —
+     any image you drop in will automatically be cropped to fit
+     perfectly, no matter its original size or orientation.
 
      The polaroids also flip on click to reveal a little note —
      search "FRONT / BACK" to edit what's written on the back.
@@ -505,8 +505,10 @@
       position: absolute;
       inset: 0;
       backface-visibility: hidden;
-      border-radius: 3px;
+      border-radius: 6px;
       box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
     }
 
     .p-front {
@@ -518,7 +520,6 @@
       background: var(--blue-soft);
       color: var(--ink);
       transform: rotateY(180deg);
-      display: flex;
       align-items: center;
       justify-content: center;
       padding: 1.6rem;
@@ -546,12 +547,19 @@
       z-index: 2;
     }
 
-    /* REPLACE ME: photo-slot is the placeholder — swap contents with <img> */
+    /* =========================================================
+     REPLACE ME: photo-slot — every slot is locked to the same
+     size + shape (a soft rounded square) so any image you drop
+     in gets cropped to fit perfectly and matches its neighbors.
+     A gentle glow + zoom-on-hover makes them feel more alive.
+     ========================================================= */
     .photo-slot {
       width: 100%;
-      height: calc(100% - 46px);
+      flex: 1 1 auto;
+      min-height: 0;
       background: repeating-linear-gradient(135deg, #F2E8F0, #F2E8F0 10px, #E9DDEE 10px, #E9DDEE 20px);
       border: 2px dashed var(--pink-dark);
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -559,12 +567,38 @@
       gap: 0.4rem;
       color: var(--pink-dark);
       text-align: center;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+      transition: box-shadow 0.35s ease;
+    }
+
+    .photo-slot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      box-shadow: inset 0 0 24px rgba(255, 111, 168, 0);
+      transition: box-shadow 0.35s ease;
+      pointer-events: none;
+    }
+
+    .polaroid:hover .photo-slot::after {
+      box-shadow: inset 0 0 24px rgba(255, 111, 168, 0.28);
     }
 
     .photo-slot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.6s ease;
+    }
+
+    .polaroid:not(.flipped):hover .photo-slot img {
+      transform: scale(1.08);
     }
 
     .photo-slot .icon {
@@ -586,6 +620,7 @@
       color: var(--ink);
       text-align: center;
       padding: 0.6rem 0.2rem 0.4rem;
+      flex: 0 0 auto;
     }
 
     .flip-hint {
@@ -598,7 +633,11 @@
       margin-top: 0.6rem;
     }
 
-    .photo-slot.portrait {
+    /* timeline side photos reuse the same locked-size treatment */
+    .t-side .photo-slot {
+      max-width: 220px;
+      width: 100%;
+      margin: 0 auto;
       aspect-ratio: 4 / 5;
       height: auto;
     }
@@ -805,12 +844,6 @@
       font-size: 0.96rem;
       line-height: 1.6;
       margin: 0;
-    }
-
-    .t-side .photo-slot {
-      max-width: 220px;
-      margin: 0 auto;
-      height: 260px;
     }
 
     /* =========================================================
@@ -1049,12 +1082,13 @@
           <div class="polaroid" data-flip>
             <div class="p-face p-front">
               <div class="tape"></div>
-              <div class="photo-slot"><span class="icon"><img src="./one.jpeg" alt="..."></span><span
-                  class="hint"></span></div>
-                                <p>this larki is still same beautiful as before 😍💫</p>
-
+              <div class="photo-slot">
+                <img src="./one.jpeg" alt="Christy and me">
+              </div>
+              <p class="polaroid-caption">this larki is still same beautiful as before 😍💫</p>
             </div>
             <div class="p-face p-back">
+              <p>this larki is still same beautiful as before 😍💫</p>
             </div>
           </div>
           <p class="flip-hint">tap to flip</p>
@@ -1063,12 +1097,13 @@
           <div class="polaroid" data-flip>
             <div class="p-face p-front">
               <div class="tape"></div>
-              <div class="photo-slot"><span class="icon"><img src="./two.jpg" alt="..."></span><span class="hint">add
-                  photo</span></div>
+              <div class="photo-slot">
+                <img src="./two.jpg" alt="Christy and me">
+              </div>
+              <p class="polaroid-caption">our lovely and silly video calls 😜</p>
             </div>
-                <p>our lovely and silly video calls 😜</p>
             <div class="p-face p-back">
-          
+              <p>our lovely and silly video calls 😜</p>
             </div>
           </div>
           <p class="flip-hint">tap to flip</p>
@@ -1208,7 +1243,7 @@
             <p class="t-text">Fill in the story of your very first conversation — the one that started it all.</p>
           </div>
           <div class="t-side">
-            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
           </div>
         </div>
 
@@ -1221,7 +1256,7 @@
               different.</p>
           </div>
           <div class="t-side">
-            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
           </div>
         </div>
 
@@ -1233,7 +1268,7 @@
             <p class="t-text">A tough season she helped you through, or one you helped her through.</p>
           </div>
           <div class="t-side">
-            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
           </div>
         </div>
 
@@ -1245,7 +1280,7 @@
             <p class="t-text">Here you both are — still talking, still laughing, still each other's person.</p>
           </div>
           <div class="t-side">
-            <div class="photo-slot portrait"><span class="icon">📷</span><span class="hint">add photo</span></div>
+            <div class="photo-slot"><span class="icon">📷</span><span class="hint">add photo</span></div>
           </div>
         </div>
       </div>
